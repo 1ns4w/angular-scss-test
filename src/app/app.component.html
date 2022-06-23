@@ -1,3 +1,4 @@
+<!--Classes and Styles Example-->
 <h1>Tienda de Productos</h1>
 <div class="products--grid">
   <!--*ngFor generates multiple divs-->
@@ -12,6 +13,7 @@
 <!--Dynamic classes and styles-->
 <!--With Angular, we can create dynamic classes and styles to avoid creating logic for it with JavaScript-->
 <!--Reference or template variable are just like JavaScript variables, so the logic will run on cascade-->
+<!--Example using dynamic classes-->
 <h1>Class and Style</h1>
 <label>Nombre</label>
 <input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
@@ -21,6 +23,7 @@
 <input type="text" required #jobTitleInput="ngModel" [(ngModel)]="person.jobTitle">
 <p [style.font-style]="jobTitleInput.invalid ? 'italic' : 'normal'">Texto</p>
 
+<!--Example using dynamic styles-->
 <div class="styles">
   <div>
     <input type="number" min="0" required [(ngModel)]="imageWidth">
@@ -33,5 +36,31 @@
 
 <!--NgClass and NgStyle-->
 <!--Are used when we must have lots of dynamic classes or styles to accomplish some styling-->
+<!--Example for multiple validations using ngClass-->
 <h1>NgClass and NgStyle</h1>
+<input type="text" required #mainHobbieInput="ngModel" [(ngModel)]="person.mainHobbie">
+<hr class="line-error"
+  [ngClass]="{
+    'invalid': mainHobbieInput.invalid,
+    'valid': mainHobbieInput.valid
+  }">
+>
 
+<!--Example for multiple validations using ngStyle-->
+<!--If your styles aren't meant to be reused, using dynamic styles or ngStyle is the best choice-->
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width">
+    <input type="number" [(ngModel)]="box.height">
+    <input type="color" [(ngModel)]="box.backgroundColor">
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.backgroundColor,
+      'display': 'block'
+    }">
+    </div>
+  </div>
+</div>

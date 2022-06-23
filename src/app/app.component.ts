@@ -14,12 +14,19 @@ export class AppComponent {
   // property binding should be used for html attributes
   imageWidth = 10
   title = 'Angular'
+
   person = {
     name: 'Angel',
     jobTitle: 'Software Engineer',
     age: 20,
     mainHobbie: 'Coding',
     avatar: 'https://avatars.githubusercontent.com/u/66014666?v=4'
+  }
+
+  box = {
+    width: 100,
+    height: 100,
+    backgroundColor: 'red',
   }
 
   answer = null
